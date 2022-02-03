@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie/models/most_popular_model.dart';
+import 'package:movie/data/models/test.dart';
 import 'package:movie/screens/movie_details/components/cast_view.dart';
 import 'package:movie/screens/movie_details/components/movie_cover.dart';
 import 'package:movie/screens/movie_details/components/movie_data.dart';
@@ -9,7 +9,7 @@ import 'package:movie/screens/movie_details/components/users_reviews.dart';
 import 'package:movie/screens/movie_details/components/story_line.dart';
 
 class Body extends StatelessWidget {
-  final MostPopularModel mostPopular;
+  final Results mostPopular;
   const Body({required this.mostPopular, Key? key}) : super(key: key);
 
   @override
@@ -19,7 +19,7 @@ class Body extends StatelessWidget {
         children: [
           MovieCover(mostPopular: mostPopular),
           MovieData(mostPopularModel: mostPopular),
-          StoryLine(paragraph: mostPopular.paragraph!),
+          StoryLine(paragraph: mostPopular.overview!),
           const CastView(),
           const MoviesPicturesView(),
           const RecommendedView(),

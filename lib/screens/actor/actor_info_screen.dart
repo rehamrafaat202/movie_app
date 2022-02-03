@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:movie/models/actor_model.dart';
+import 'package:movie/data/models/actor_model.dart';
+import 'package:movie/data/models/cast_model.dart';
 import 'package:movie/screens/actor/components.dart/body.dart';
 
 class ActorInfoScreen extends StatelessWidget {
-  final ActorModel actorModel;
+  final Cast actorModel;
   const ActorInfoScreen({required this.actorModel, Key? key}) : super(key: key);
 
   @override

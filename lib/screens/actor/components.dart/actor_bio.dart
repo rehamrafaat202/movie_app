@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:movie/models/actor_model.dart';
+import 'package:movie/constants.dart';
+import 'package:movie/data/models/actor_model.dart';
+import 'package:movie/data/models/cast_model.dart';
 import 'package:movie/style.dart';
 import 'package:movie/widgets/default_data.dart';
 
 class ActorBio extends StatelessWidget {
-  final ActorModel actorModel;
+  final Cast actorModel;
   const ActorBio({required this.actorModel, Key? key}) : super(key: key);
 
   @override
@@ -16,10 +18,13 @@ class ActorBio extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 8.0),
             child: Hero(
-              tag: actorModel.image!,
+              tag: actorModel.id!,
               child: CircleAvatar(
                 radius: 80,
-                backgroundImage: NetworkImage(actorModel.image!),
+                backgroundImage: actorModel.profilePath == null
+                    ? const NetworkImage(
+                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_kcIiGCUdlQDi5AmeHqSu-8xomV24HzGYsQ&usqp=CAU")
+                    : NetworkImage(imgeUrl + actorModel.profilePath!),
               ),
             ),
           ),
@@ -40,7 +45,7 @@ class ActorBio extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  actorModel.jobDescription!,
+                  actorModel.character!,
                   style: const TextStyle(
                     wordSpacing: 1,
                     fontSize: 14,
@@ -49,16 +54,16 @@ class ActorBio extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 40,
+                  height: 20,
                 ),
                 defaultDataRow(
-                    title: "Date Of Birth",
-                    description: actorModel.dateOfBirth),
+                    title: "Gender",
+                    description: actorModel.gender == 2 ? "Male" : "Female"),
                 defaultDataRow(
-                    title: "Place Of Birth",
-                    description: actorModel.placeOfBirth),
+                    title: "known For Department",
+                    description: actorModel.knownForDepartment),
                 defaultDataRow(
-                    title: "Total Films", description: actorModel.totalFilms),
+                    title: "popularity", description: actorModel.popularity),
               ],
             ),
           )

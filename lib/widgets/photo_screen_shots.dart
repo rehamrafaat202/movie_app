@@ -18,8 +18,10 @@ class PhotosScreenShots extends StatelessWidget {
       decoration: BoxDecoration(
           color: scondryColor,
           borderRadius: BorderRadius.circular(10),
-          image:
-              DecorationImage(image: NetworkImage(image), fit: BoxFit.cover)),
+          image: image.isEmpty
+              ? const DecorationImage(
+                  image: AssetImage("assets/images/logo.png"), fit: BoxFit.fill)
+              : DecorationImage(image: NetworkImage(image), fit: BoxFit.cover)),
       // child: Text("kllj"),
     );
   }

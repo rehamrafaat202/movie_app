@@ -1,5 +1,3 @@
-import 'package:movie/models/new_model.dart';
-
 class NewsMoviesModl {
   String? id;
   String? image;

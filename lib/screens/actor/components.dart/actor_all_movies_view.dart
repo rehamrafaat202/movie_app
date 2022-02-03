@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:movie/models/actor_all_movies_model.dart';
+import 'package:movie/constants.dart';
+import 'package:movie/data/models/actor_all_movies_model.dart';
+import 'package:movie/provider/cast_provider/actor_all_movies_provider.dart';
 import 'package:movie/style.dart';
+import 'package:provider/provider.dart';
 
 class ActorAllMoviesView extends StatelessWidget {
   const ActorAllMoviesView({Key? key}) : super(key: key);
@@ -19,96 +22,105 @@ class ActorAllMoviesView extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-          ListView.builder(
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: actorMovies.length,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      height: 130,
-                      margin: const EdgeInsets.only(right: 12),
-                      width: 90,
-                      decoration: BoxDecoration(
-                          color: scondryColor,
-                          borderRadius: BorderRadius.circular(10),
-                          image: DecorationImage(
-                              image: NetworkImage(actorMovies[index].image!),
-                              fit: BoxFit.cover)),
-                    ),
-                    Expanded(
-                        child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          actorMovies[index].title!,
-                          style: const TextStyle(
-                            wordSpacing: 1,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: blackColor,
-                          ),
-                        ),
-                        Text(
-                          actorMovies[index].name!,
-                          style: const TextStyle(
-                            wordSpacing: 1,
-                            fontSize: 15,
-                            color: Colors.grey,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          actorMovies[index].category!,
-                          style: const TextStyle(
-                            wordSpacing: 1.5,
-                            fontSize: 15,
-                            color: Colors.grey,
-                          ),
-                        ),
-                        Text(
-                          actorMovies[index].date!,
-                          style: const TextStyle(
-                            wordSpacing: 1,
-                            fontSize: 15,
-                            color: Colors.grey,
-                          ),
-                        ),
-                      ],
-                    )),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 8.0),
-                      child: Row(
+          Consumer<ActorAllmoviesProvider>(
+            builder: (context, value, child) => ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: value.result!.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: 130,
+                        margin: const EdgeInsets.only(right: 12),
+                        width: 90,
+                        decoration: BoxDecoration(
+                            color: scondryColor,
+                            borderRadius: BorderRadius.circular(10),
+                            image: value.result![index].posterPath == null
+                                ? const DecorationImage(
+                                    image: AssetImage("assets/images/logo.png"),
+                                    fit: BoxFit.fill)
+                                : DecorationImage(
+                                    image: NetworkImage(imgeUrl +
+                                        value.result![index].posterPath!),
+                                    fit: BoxFit.cover)),
+                      ),
+                      Expanded(
+                          child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Icon(
-                            Icons.star,
-                            color: rateColor,
-                            size: 18,
-                          ),
-                          const SizedBox(
-                            width: 8,
+                          Text(
+                            value.result![index].title!,
+                            style: const TextStyle(
+                              wordSpacing: 1,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: blackColor,
+                            ),
                           ),
                           Text(
-                            actorMovies[index].rete.toString(),
+                            value.result![index].character!,
                             style: const TextStyle(
-                                color: Colors.grey,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500),
-                          )
+                              wordSpacing: 1,
+                              fontSize: 15,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          const Text(
+                            "fiction,Action",
+                            style: TextStyle(
+                              wordSpacing: 1.5,
+                              fontSize: 15,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          Text(
+                            value.result![index].releaseDate == null
+                                ? ""
+                                : value.result![index].releaseDate!,
+                            style: const TextStyle(
+                              wordSpacing: 1,
+                              fontSize: 15,
+                              color: Colors.grey,
+                            ),
+                          ),
                         ],
-                      ),
-                    )
-                  ],
-                ),
-              );
-            },
+                      )),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 8.0),
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Icons.star,
+                              color: rateColor,
+                              size: 18,
+                            ),
+                            const SizedBox(
+                              width: 8,
+                            ),
+                            Text(
+                              value.result![index].voteAverage.toString(),
+                              style: const TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w500),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                );
+              },
+            ),
           ),
           const SizedBox(
             height: 40,

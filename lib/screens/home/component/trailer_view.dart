@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie/models/trailer_model.dart';
+import 'package:movie/data/models/trailer_model.dart';
 import 'package:movie/style.dart';
 
 class TrailersView extends StatelessWidget {

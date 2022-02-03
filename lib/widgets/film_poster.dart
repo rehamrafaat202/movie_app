@@ -22,32 +22,40 @@ class FilmPoster extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
+          Container(
+            height: 180,
+            width: 100,
+            decoration: BoxDecoration(
+              color: scondryColor,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: FadeInImage(
+                image: NetworkImage(image),
+                placeholder: const NetworkImage(
+                    "https://i.pinimg.com/236x/e2/6a/eb/e26aebfab63728851c1103539ebe90d1.jpg"),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
           Expanded(
             child: Container(
-              // height: height,
               width: 100,
-              decoration: BoxDecoration(
-                  color: scondryColor,
-                  borderRadius: BorderRadius.circular(10),
-                  image: DecorationImage(
-                      image: NetworkImage(image), fit: BoxFit.cover)),
-              // child: Text("kllj"),
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                title,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12,
+                ),
+                // maxLines: 1,
+                // overflow: TextOverflow.ellipsis,
+              ),
             ),
           ),
           Container(
             width: 100,
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              title,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 12,
-              ),
-              maxLines: 1,
-              overflow: TextOverflow.clip,
-            ),
-          ),
-          Padding(
             padding: const EdgeInsets.only(left: 8.0),
             child: Text(
               subTitle,

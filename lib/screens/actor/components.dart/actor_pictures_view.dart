@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:movie/models/actor_photos_model.dart';
+import 'package:movie/constants.dart';
+import 'package:movie/data/models/actor_photos_model.dart';
+import 'package:movie/provider/cast_provider/actor_photos_provider.dart';
 
 import 'package:movie/widgets/photo_screen_shots.dart';
+import 'package:provider/provider.dart';
 
 class ActorPicturesView extends StatelessWidget {
   const ActorPicturesView({Key? key}) : super(key: key);
@@ -22,14 +25,17 @@ class ActorPicturesView extends StatelessWidget {
           ),
           SizedBox(
             height: 200,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              physics: const BouncingScrollPhysics(),
-              shrinkWrap: true,
-              itemCount: actorPhotos.length,
-              itemBuilder: (context, index) {
-                return PhotosScreenShots(
-                  image: actorPhotos[index].image!,
+            child: Consumer<ActorPhotosProvider>(
+              builder: (context, value, child) {
+                return ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  physics: const BouncingScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: value.result!.length,
+                  itemBuilder: (context, index) {
+                    return PhotosScreenShots(
+                        image: imgeUrl + value.result![index].filePath!);
+                  },
                 );
               },
             ),

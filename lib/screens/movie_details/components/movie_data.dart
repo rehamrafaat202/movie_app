@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:movie/models/most_popular_model.dart';
+import 'package:movie/data/models/test.dart';
 import 'package:movie/style.dart';
 
 class MovieData extends StatelessWidget {
-  final MostPopularModel mostPopularModel;
+  final Results mostPopularModel;
   const MovieData({required this.mostPopularModel, Key? key}) : super(key: key);
 
   @override
@@ -14,24 +14,21 @@ class MovieData extends StatelessWidget {
         children: [
           defaultDataRow(
               title: "Release Date: ",
-              description: mostPopularModel.date,
+              description: mostPopularModel.releaseDate,
               textColor: Colors.grey),
           defaultDataRow(
-            title: "Director: ",
-            description: mostPopularModel.director,
+            title: "popularity: ",
+            description: mostPopularModel.popularity,
           ),
+
           defaultDataRow(
-            title: "Producer: ",
-            description: mostPopularModel.producer,
+            title: "voteCount: ",
+            description: mostPopularModel.voteCount.toString(),
           ),
-          defaultDataRow(
-            title: "Composer: ",
-            description: mostPopularModel.composer,
-          ),
-          defaultDataRow(
-              title: "Box Office: ",
-              description: mostPopularModel.boxOffice,
-              textColor: Colors.grey),
+          // defaultDataRow(
+          //     title: "Box Office: ",
+          //     description: mostPopularModel.boxOffice,
+          //     textColor: Colors.grey),
         ],
       ),
     );
@@ -54,7 +51,7 @@ class MovieData extends StatelessWidget {
             // softWrap: true,
           ),
           Text(
-            description,
+            description.toString(),
             style: TextStyle(
                 wordSpacing: 1.5,
                 fontSize: 14,

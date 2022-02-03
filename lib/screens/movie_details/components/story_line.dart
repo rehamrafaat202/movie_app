@@ -28,7 +28,7 @@ class _StoryLineState extends State<StoryLine> {
           Padding(
             padding: const EdgeInsets.only(bottom: 8.0),
             child: Text(
-              "storyline".toUpperCase(),
+              "overview".toUpperCase(),
               style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
             ),
           ),

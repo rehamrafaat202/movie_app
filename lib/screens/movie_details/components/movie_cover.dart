@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:movie/models/most_popular_model.dart';
-import 'package:movie/screens/home/component/most_popular.dart';
+import 'package:movie/constants.dart';
+import 'package:movie/data/models/test.dart';
 import 'package:movie/screens/movie_details/components/build_poster.dart';
-import 'package:movie/style.dart';
 import 'package:movie/widgets/curve_container.dart';
 
 class MovieCover extends StatelessWidget {
-  final MostPopularModel mostPopular;
+  final Results mostPopular;
 
   const MovieCover({required this.mostPopular, Key? key}) : super(key: key);
 
@@ -28,7 +27,10 @@ class MovieCover extends StatelessWidget {
               decoration: BoxDecoration(
                   image: DecorationImage(
                       fit: BoxFit.fill,
-                      image: NetworkImage(mostPopular.cover!))),
+                      image: mostPopular.backdropPath!.isEmpty
+                          ? const NetworkImage(
+                              "https://i.pinimg.com/originals/6e/6a/e2/6e6ae2b2367c74e2bd0be2f014cdf9f1.jpg")
+                          : NetworkImage(imgeUrl + mostPopular.backdropPath!))),
             ),
           ),
         ),

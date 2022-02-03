@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:movie/models/most_popular_model.dart';
+import 'package:movie/constants.dart';
+import 'package:movie/data/models/test.dart';
 import 'package:movie/style.dart';
 
 class BuildPoster extends StatelessWidget {
-  final MostPopularModel mostPopular;
+  final Results mostPopular;
   const BuildPoster({required this.mostPopular, Key? key}) : super(key: key);
 
   @override
@@ -16,7 +17,7 @@ class BuildPoster extends StatelessWidget {
           child: Row(
             children: [
               Hero(
-                tag: mostPopular.image!,
+                tag: mostPopular.posterPath!,
                 child: Container(
                   height: 155,
                   width: 110,
@@ -24,7 +25,8 @@ class BuildPoster extends StatelessWidget {
                       color: scondryColor,
                       borderRadius: BorderRadius.circular(10),
                       image: DecorationImage(
-                          image: NetworkImage(mostPopular.image!),
+                          image:
+                              NetworkImage(imgeUrl + mostPopular.posterPath!),
                           fit: BoxFit.cover)),
                 ),
               ),
@@ -33,10 +35,13 @@ class BuildPoster extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      mostPopular.title!.toUpperCase(),
-                      style: const TextStyle(
-                          fontSize: 15, fontWeight: FontWeight.bold),
+                    Container(
+                      width: 200,
+                      child: Text(
+                        mostPopular.title!.toUpperCase(),
+                        style: const TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.bold),
+                      ),
                     ),
                     const SizedBox(
                       height: 8,
@@ -55,7 +60,8 @@ class BuildPoster extends StatelessWidget {
                               width: 8,
                             ),
                             Text(
-                              mostPopular.rete.toString(),
+                              mostPopular.voteAverage.toString(),
+                              // mostPopular.popularity.toString(),
                               style: const TextStyle(color: Colors.grey),
                             )
                           ],
@@ -64,7 +70,7 @@ class BuildPoster extends StatelessWidget {
                           width: 40,
                         ),
                         Row(
-                          children: [
+                          children: const [
                             const Icon(
                               Icons.access_alarm,
                               color: scondryColor,
@@ -74,7 +80,8 @@ class BuildPoster extends StatelessWidget {
                               width: 8,
                             ),
                             Text(
-                              mostPopular.time!,
+                              "2 h 23min",
+                              // mostPopular.time!,
                               style: const TextStyle(color: Colors.grey),
                             )
                           ],
@@ -88,12 +95,14 @@ class BuildPoster extends StatelessWidget {
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
-                          return Padding(
+                          return const Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Chip(
-                                  label: Text(mostPopular.category![index])));
+                                label: Text("Action"),
+                                // label: Text(mostPopular.category![index])
+                              ));
                         },
-                        itemCount: mostPopular.category!.length,
+                        itemCount: 3,
                       ),
                     )
                   ],

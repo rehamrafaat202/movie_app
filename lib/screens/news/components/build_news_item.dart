@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie/models/news_movies_model.dart';
+import 'package:movie/data/models/news_movies_model.dart';
 import 'package:movie/style.dart';
 
 Widget buildCategoryItem(NewsMoviesModl model) => Container(
