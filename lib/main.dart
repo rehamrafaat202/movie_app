@@ -1,4 +1,9 @@
+import 'package:alice/alice.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:movie/constants.dart';
+import 'package:movie/data/repository/repo_controller.dart';
+import 'package:movie/data/repository/test_repo.dart';
 import 'package:movie/provider/cast_provider.dart';
 import 'package:movie/provider/cast_provider/actor_all_movies_provider.dart';
 import 'package:movie/provider/cast_provider/actor_photos_provider.dart';
@@ -14,15 +19,16 @@ import 'package:movie/provider/top_rated_provider.dart';
 import 'package:movie/screens/splash_screen.dart';
 import 'package:movie/style.dart';
 import 'package:provider/provider.dart';
+import 'package:hive/hive.dart';
 
-// Alice alice = Alice(showNotification: true);
+Alice alice = Alice(showNotification: true);
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // MostPopularRepo repo = MostPopularRepo();
-
-  // repo.getMostPopular();
+  await Hive.initFlutter();
+  await Hive.openBox(fav);
+  DioHelper.init1();
   runApp(const MyApp());
 }
 
@@ -46,9 +52,11 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => CastProvider()),
         ChangeNotifierProvider(create: (context) => ActorPhotosProvider()),
         ChangeNotifierProvider(create: (context) => ActorAllmoviesProvider()),
+        ChangeNotifierProvider(create: (context) => TestRepo()),
       ],
       child: MaterialApp(
           title: 'Movie App',
+          navigatorKey: alice.getNavigatorKey(),
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             fontFamily: "Roboto",

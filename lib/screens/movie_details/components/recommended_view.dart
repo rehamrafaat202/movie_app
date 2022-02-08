@@ -56,7 +56,9 @@ class _RecommendedViewState extends State<RecommendedView> {
                       : value.result!.length,
                   itemBuilder: (context, index) {
                     return FilmPoster(
-                        image: imgeUrl + value.result![index].posterPath!,
+                        image: value.result![index].posterPath == null
+                            ? ""
+                            : imgeUrl + value.result![index].posterPath!,
                         subTitle: value.result![index].releaseDate!,
                         title: value.result![index].title!);
                   },

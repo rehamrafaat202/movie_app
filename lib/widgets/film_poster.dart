@@ -31,12 +31,18 @@ class FilmPoster extends StatelessWidget {
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
-              child: FadeInImage(
-                image: NetworkImage(image),
-                placeholder: const NetworkImage(
-                    "https://i.pinimg.com/236x/e2/6a/eb/e26aebfab63728851c1103539ebe90d1.jpg"),
-                fit: BoxFit.cover,
-              ),
+              child: image.isEmpty
+                  ? FadeInImage(
+                      image: NetworkImage(image),
+                      placeholder: const AssetImage(" assets/images/logo.png"),
+                      fit: BoxFit.cover,
+                    )
+                  : FadeInImage(
+                      image: NetworkImage(image),
+                      placeholder: const NetworkImage(
+                          "https://i.pinimg.com/236x/e2/6a/eb/e26aebfab63728851c1103539ebe90d1.jpg"),
+                      fit: BoxFit.cover,
+                    ),
             ),
           ),
           Expanded(

@@ -6,6 +6,7 @@ import 'package:movie/provider/most_popular_provider.dart';
 import 'package:movie/provider/movie_photo_provider.dart';
 import 'package:movie/provider/movie_review_provider.dart';
 import 'package:movie/provider/recommendation_provider.dart';
+import 'package:movie/screens/home/popular_pagnation_screen.dart';
 import 'package:movie/screens/movie_details/movie_screen.dart';
 import 'package:movie/style.dart';
 import 'package:provider/provider.dart';
@@ -44,9 +45,14 @@ class _MostPopularState extends State<MostPopular> {
               ),
               InkWell(
                 onTap: () {
-                  setState(() {
-                    seeAll = !seeAll;
-                  });
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              const PopularPagnationScreen()));
+                  // setState(() {
+                  //   seeAll = !seeAll;
+                  // });
                 },
                 child: Text(
                   !seeAll ? "See All" : "See Less",
