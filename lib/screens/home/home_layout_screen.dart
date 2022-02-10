@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie/provider/most_popular_provider.dart';
+import 'package:movie/provider/movie_provider/most_popular_provider.dart';
 import 'package:movie/screens/home/component/body.dart';
 import 'package:movie/screens/home/component/home_drawer.dart';
 import 'package:provider/provider.dart';

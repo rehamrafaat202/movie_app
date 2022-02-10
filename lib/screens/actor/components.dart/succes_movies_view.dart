@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:movie/data/models/actor_success_movies_model.dart';
-import 'package:movie/data/models/recommended_model.dart';
 
 import 'package:movie/widgets/film_poster.dart';
 
@@ -24,7 +23,7 @@ class SuccessMoviesView extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               physics: const BouncingScrollPhysics(),
               shrinkWrap: true,
-              itemCount: recommended.length,
+              itemCount: successMovies.length,
               itemBuilder: (context, index) {
                 return FilmPoster(
                   image: successMovies[index].image!,

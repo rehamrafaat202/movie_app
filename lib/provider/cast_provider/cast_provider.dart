@@ -10,13 +10,16 @@ import 'package:movie/data/repository/repo_controller.dart';
 class CastProvider with ChangeNotifier {
   CastModel? castModel;
   List<Cast>? result;
-  Dio dio = Dio();
+  // Dio dio = Dio();
   CastProvider();
 
   CastRepo repo = CastRepo();
   Future displayCastMovie({required movieId}) async {
     result = await repo.getCast(
-        dio: dio, castModel: castModel, result: result, movieId: movieId);
+        dio: DioHelper.dio,
+        castModel: castModel,
+        result: result,
+        movieId: movieId);
     notifyListeners();
   }
 }

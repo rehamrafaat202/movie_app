@@ -6,8 +6,11 @@ class MoviePhotosRepo {
 
   Future<List<Posters>> getMoviePhotos(
       {dio, MoviePhotosModel? moviePhotosModel, result, movieId}) async {
-    await dio.get(baseUrl + "movie/$movieId/images",
-        queryParameters: {"api_key": apiKey}).then((value) {
+    await dio
+        .get(
+      baseUrl + "movie/$movieId/images",
+    )
+        .then((value) {
       moviePhotosModel = MoviePhotosModel.fromJson(value.data);
       result = moviePhotosModel!.posters;
       print(result.length);

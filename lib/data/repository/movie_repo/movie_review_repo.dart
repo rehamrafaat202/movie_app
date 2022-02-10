@@ -8,8 +8,11 @@ class MovieReviewRepo {
 
   Future<List<MovieReviewResults>> getMoviesReviews(
       {dio, MovieReviewModel? movieReviewModel, result, movieId}) async {
-    await dio.get(baseUrl + "movie/$movieId/reviews",
-        queryParameters: {"api_key": apiKey}).then((value) {
+    await dio
+        .get(
+      baseUrl + "movie/$movieId/reviews",
+    )
+        .then((value) {
       movieReviewModel = MovieReviewModel.fromJson(value.data);
       result = movieReviewModel!.results;
       // print(result.length);

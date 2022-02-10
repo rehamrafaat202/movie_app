@@ -8,8 +8,11 @@ class TopRatedRepo {
 
   Future<List<TopRatedResults>> getTopRated(
       {dio, TopRatedModel? topRatedModel, result}) async {
-    await dio.get(baseUrl + "movie/top_rated",
-        queryParameters: {"api_key": apiKey}).then((value) {
+    await dio
+        .get(
+      "movie/top_rated",
+    )
+        .then((value) {
       topRatedModel = TopRatedModel.fromJson(value.data);
       result = topRatedModel!.results;
       print(result![0]);

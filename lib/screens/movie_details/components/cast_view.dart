@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie/constants.dart';
-import 'package:movie/data/models/actor_model.dart';
-import 'package:movie/provider/cast_provider.dart';
+import 'package:movie/provider/cast_provider/cast_provider.dart';
 import 'package:movie/provider/cast_provider/actor_all_movies_provider.dart';
 import 'package:movie/provider/cast_provider/actor_photos_provider.dart';
 import 'package:movie/screens/actor/actor_info_screen.dart';

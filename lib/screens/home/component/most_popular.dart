@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:movie/constants.dart';
-import 'package:movie/provider/cast_provider.dart';
+import 'package:movie/provider/cast_provider/cast_provider.dart';
 // import 'package:movie/data/models/most_popular_model.dart';
-import 'package:movie/provider/most_popular_provider.dart';
-import 'package:movie/provider/movie_photo_provider.dart';
-import 'package:movie/provider/movie_review_provider.dart';
-import 'package:movie/provider/recommendation_provider.dart';
+import 'package:movie/provider/movie_provider/most_popular_provider.dart';
+import 'package:movie/provider/movie_provider/movie_photo_provider.dart';
+import 'package:movie/provider/movie_provider/movie_review_provider.dart';
+import 'package:movie/provider/movie_provider/recommendation_provider.dart';
 import 'package:movie/screens/home/popular_pagnation_screen.dart';
 import 'package:movie/screens/movie_details/movie_screen.dart';
 import 'package:movie/style.dart';

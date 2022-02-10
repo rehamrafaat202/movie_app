@@ -1,8 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:movie/constants.dart';
-import 'package:movie/data/models/home_banner_model.dart';
-import 'package:movie/provider/top_rated_provider.dart';
+import 'package:movie/provider/movie_provider/top_rated_provider.dart';
 import 'package:movie/style.dart';
 import 'package:provider/provider.dart';
 

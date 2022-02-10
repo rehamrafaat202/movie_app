@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie/constants.dart';
-import 'package:movie/provider/recommendation_provider.dart';
+import 'package:movie/provider/movie_provider/recommendation_provider.dart';
 
 import 'package:movie/widgets/film_poster.dart';
 import 'package:provider/provider.dart';

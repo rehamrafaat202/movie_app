@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie/constants.dart';
-import 'package:movie/data/models/coming_soon_model.dart';
-import 'package:movie/provider/coming_soon_provider.dart';
-import 'package:movie/provider/now_playing_provider.dart';
+import 'package:movie/provider/movie_provider/coming_soon_provider.dart';
 
 import 'package:movie/widgets/film_poster.dart';
 import 'package:provider/provider.dart';

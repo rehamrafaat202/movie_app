@@ -6,11 +6,12 @@ import 'package:movie/data/models/recommendation_model.dart';
 import 'package:movie/data/repository/movie_repo/movie_review_repo.dart';
 
 import 'package:movie/data/repository/movie_repo/recommendation_repo.dart';
+import 'package:movie/data/repository/repo_controller.dart';
 
 class MovieReviewProvider with ChangeNotifier {
   MovieReviewModel? movieReviewModel;
   List<MovieReviewResults>? result;
-  Dio dio = Dio();
+
   MovieReviewProvider();
   // ..interceptors.add(alice.getDioInterceptor());
 
@@ -18,7 +19,7 @@ class MovieReviewProvider with ChangeNotifier {
   Future displayMoviesReviews({required movieId}) async {
     result = await repo
         .getMoviesReviews(
-            dio: dio,
+            dio: DioHelper.dio,
             movieReviewModel: movieReviewModel,
             result: result,
             movieId: movieId)

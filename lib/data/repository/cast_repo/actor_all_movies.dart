@@ -6,8 +6,11 @@ class ActorAllMoviesRepo {
 
   Future<List<ActorAllMoviesCast>> getCast(
       {dio, ActorAllMoviesModel? actorAllMoviesModel, result, personId}) async {
-    await dio.get(baseUrl + "person/$personId/movie_credits",
-        queryParameters: {"api_key": apiKey}).then((value) {
+    await dio
+        .get(
+      "person/$personId/movie_credits",
+    )
+        .then((value) {
       actorAllMoviesModel = ActorAllMoviesModel.fromJson(value.data);
       result = actorAllMoviesModel!.cast;
       print("AllMovies ${result.length}");

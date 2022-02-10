@@ -7,8 +7,11 @@ class RecommendationRepo {
 
   Future<List<RecommendationResults>> getRecommendationMovies(
       {dio, RecommendationModel? recommendationModel, result, movieId}) async {
-    await dio.get(baseUrl + "movie/$movieId/recommendations",
-        queryParameters: {"api_key": apiKey}).then((value) {
+    await dio
+        .get(
+      "movie/$movieId/recommendations",
+    )
+        .then((value) {
       recommendationModel = RecommendationModel.fromJson(value.data);
       result = recommendationModel!.results;
       print(result.length);

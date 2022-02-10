@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:movie/data/models/test.dart';
-import 'package:movie/data/repository/movie_repo/most_popular_repo.dart';
+import 'package:movie/data/repository/movie_repo/most_lopular_repo.dart';
 import 'package:movie/data/repository/repo_controller.dart';
 import 'package:movie/main.dart';
 

@@ -7,9 +7,11 @@ class NowPlayingRepo {
 
   Future<List<NowPlayingResults>> getNowPlaying(
       {dio, NowPlayingModel? nowPlayingModel, result}) async {
-    await dio.get(baseUrl + "movie/now_playing", queryParameters: {
-      "api_key": apiKey,
-    }).then((value) {
+    await dio
+        .get(
+      "movie/now_playing",
+    )
+        .then((value) {
       nowPlayingModel = NowPlayingModel.fromJson(value.data);
       result = nowPlayingModel!.results;
       print("now Playing ${nowPlayingModel!.totalPages}");

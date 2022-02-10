@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie/screens/auth/login_screen.dart';
+import 'package:movie/screens/favorites/favorite_screen.dart';
 import 'package:movie/screens/home/home_layout_screen.dart';
 import 'package:movie/screens/news/news_screen.dart';
 import 'package:movie/style.dart';
@@ -49,8 +50,13 @@ class HomeDrawer extends StatelessWidget {
                     }),
                 defaultdrawerWidgets(
                     icon: Icons.favorite_outline,
-                    title: "Favourite",
-                    press: () {}),
+                    title: "Favorites",
+                    press: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => FavorieScreen()));
+                    }),
                 defaultdrawerWidgets(
                     icon: Icons.star_border_rounded,
                     title: "Recommendations",

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:movie/constants.dart';
-import 'package:movie/data/models/actor_photos_model.dart';
 import 'package:movie/provider/cast_provider/actor_photos_provider.dart';
 
 import 'package:movie/widgets/photo_screen_shots.dart';

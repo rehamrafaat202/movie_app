@@ -7,11 +7,14 @@ class ActorPhotosRepo {
 
   Future<List<Profiles>> getCast(
       {dio, ActorPhotosModel? actorPhotosModel, result, personId}) async {
-    await dio.get(baseUrl + "person/$personId/images",
-        queryParameters: {"api_key": apiKey}).then((value) {
+    await dio
+        .get(
+      "person/$personId/images",
+    )
+        .then((value) {
       actorPhotosModel = ActorPhotosModel.fromJson(value.data);
       result = actorPhotosModel!.profiles;
-      print("castPhotos ${result.length}");
+      // print("castPhotos ${result.length}");
       return result;
     }).catchError((e) {
       print(e);

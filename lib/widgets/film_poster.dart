@@ -39,8 +39,7 @@ class FilmPoster extends StatelessWidget {
                     )
                   : FadeInImage(
                       image: NetworkImage(image),
-                      placeholder: const NetworkImage(
-                          "https://i.pinimg.com/236x/e2/6a/eb/e26aebfab63728851c1103539ebe90d1.jpg"),
+                      placeholder: const AssetImage("assets/images/logo.png"),
                       fit: BoxFit.cover,
                     ),
             ),

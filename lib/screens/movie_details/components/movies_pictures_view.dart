@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie/constants.dart';
-import 'package:movie/data/models/moive_pictures_model.dart';
-import 'package:movie/provider/movie_photo_provider.dart';
+import 'package:movie/data/repository/movie_repo/test_repo.dart';
+import 'package:movie/provider/movie_provider/movie_photo_provider.dart';
 
 import 'package:movie/widgets/photo_screen_shots.dart';
 import 'package:provider/provider.dart';

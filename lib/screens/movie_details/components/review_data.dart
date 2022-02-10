@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie/provider/movie_review_provider.dart';
+import 'package:movie/provider/movie_provider/movie_review_provider.dart';
 import 'package:movie/provider/read_more_provider.dart';
 import 'package:movie/style.dart';
 import 'package:provider/provider.dart';
